@@ -1,3 +1,9 @@
+body {
+  background-image: url('../img/bg5.jpg');
+  background-position: center top;
+  background-size: 100%;
+}
+
 .scoreboard {
   position: relative;
   width: 100%;
@@ -12,7 +18,7 @@
 }
 
 .scoreboard__title {
-
+  color: red;
 }
 
 .scoreboard-names {
