@@ -17,8 +17,8 @@ let btnUser2 = document.querySelector('.scoreboard-buttons__btn--2');
 let dialogBtnUser1 = document.querySelector('.scoreboard-dialog__btn--1');
 let dialogBtnUser2 = document.querySelector('.scoreboard-dialog__btn--2');
 
-changeName(fieldNameUser1, dialogBtnUser1, user1);
-changeName(fieldNameUser2, dialogBtnUser2, user2);
+changeName(fieldNameUser1, dialogBtnUser1, btnUser1,user1);
+changeName(fieldNameUser2, dialogBtnUser2, btnUser2, user2);
 
 startGame();
 
@@ -70,9 +70,10 @@ function addPoint(fieldScore) {
   fieldScore.toString();
 }
 
-function changeName(fieldName, dialogName, user) {
+function changeName(fieldName, dialogName, btnUser, user) {
   fieldName.textContent = user;
   dialogName.textContent = user;
+  btnUser.textContent = 'Очко ' + user;
 }
 
 function startGame() {
