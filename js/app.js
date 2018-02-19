@@ -14,8 +14,11 @@ let fieldScoreUser2 = document.querySelector('.scoreboard-scores__score--2');
 let btnUser1 = document.querySelector('.scoreboard-buttons__btn--1');
 let btnUser2 = document.querySelector('.scoreboard-buttons__btn--2');
 
-changeName(fieldNameUser1, user1);
-changeName(fieldNameUser2, user2);
+let dialogBtnUser1 = document.querySelector('.scoreboard-dialog__btn--1');
+let dialogBtnUser2 = document.querySelector('.scoreboard-dialog__btn--2');
+
+changeName(fieldNameUser1, dialogBtnUser1, user1);
+changeName(fieldNameUser2, dialogBtnUser2, user2);
 
 startGame();
 
@@ -63,18 +66,26 @@ function changeGuard() {
 }
 
 function addPoint(fieldScore) {
-  fieldScore.value++;
+  ++fieldScore.value;
   fieldScore.toString();
 }
 
-function changeName(fieldName, user) {
+function changeName(fieldName, dialogName, user) {
   fieldName.textContent = user;
+  dialogName.textContent = user;
 }
 
 function startGame() {
   alert("Разыгрываем подачу!");
-  confirm('Кто начинает?') ?
-    fieldNameUser1.classList.add('submits') :
-    fieldNameUser2.classList.add('submits');
+  let dialogWindow = document.querySelector('.scoreboard-dialog');
+  dialogWindow.classList.add('scoreboard-dialog--show');
+  dialogWindow.addEventListener('click', function (e) {
+    if (e.target.classList.contains('scoreboard-dialog__btn--1')) {
+      fieldNameUser1.classList.add('submits');
+    } else if (e.target.classList.contains('scoreboard-dialog__btn--2')) {
+      fieldNameUser2.classList.add('submits');
+    }
+    dialogWindow.classList.remove('scoreboard-dialog--show');
+  });
 }
 

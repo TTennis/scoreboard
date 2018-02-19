@@ -13,14 +13,21 @@
     <h2 class="scoreboard-names__name scoreboard-names__name--2"></h2>
   </div>
   <div class="scoreboard-scores">
-    <input type="number" value="0" class="scoreboard-scores__score scoreboard-scores__score--1">
-    <input type="number" value="0" class="scoreboard-scores__score scoreboard-scores__score--2">
+    <label><input type="number" value="0" class="scoreboard-scores__score scoreboard-scores__score--1"></label>
+    <label><input type="number" value="0" class="scoreboard-scores__score scoreboard-scores__score--2"></label>
   </div>
   <div class="scoreboard-buttons">
     <button class="scoreboard-buttons__btn scoreboard-buttons__btn--1">Очко первому игроку</button>
     <button class="scoreboard-buttons__btn scoreboard-buttons__btn--2">Очко второму игроку</button>
   </div>
 </section>
+<dialog class="scoreboard-dialog">
+  <h2 class="scoreboard-dialog__title">Кто начинает?</h2>
+  <div class="scoreboard-dialog__btns">
+    <button class="scoreboard-dialog__btn scoreboard-dialog__btn--1"></button>
+    <button class="scoreboard-dialog__btn scoreboard-dialog__btn--2"></button>
+  </div>
+</dialog>
 <script src="js/app.js"></script>
 </body>
 </html>

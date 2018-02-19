@@ -56,3 +56,32 @@
 .scoreboard-buttons__btn--2 {
   background-color: red;
 }
+
+.scoreboard-dialog {
+  display: none;
+}
+
+.scoreboard-dialog--show {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.scoreboard-dialog__title {
+
+}
+
+.scoreboard-dialog__btns {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+.scoreboard-dialog__btn {
+  width: 45%;
+}
