@@ -1,7 +1,7 @@
 'use strict';
 
-let user1 = prompt('Имя первого игрока', '');
-let user2 = prompt('Имя второго игрока', '');
+let user1 = prompt('Имя первого игрока', 'Игрок 1');
+let user2 = prompt('Имя второго игрока', 'Игрок 2');
 
 let balance = false;
 
