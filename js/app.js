@@ -17,7 +17,7 @@ let btnUser2 = document.querySelector('.scoreboard-buttons__btn--2');
 let dialogBtnUser1 = document.querySelector('.scoreboard-dialog__btn--1');
 let dialogBtnUser2 = document.querySelector('.scoreboard-dialog__btn--2');
 
-changeName(fieldNameUser1, dialogBtnUser1, btnUser1,user1);
+changeName(fieldNameUser1, dialogBtnUser1, btnUser1, user1);
 changeName(fieldNameUser2, dialogBtnUser2, btnUser2, user2);
 
 startGame();
@@ -59,7 +59,9 @@ function validScore() {
 
 function changeGuard() {
   if ((+fieldScoreUser1.value + +fieldScoreUser2.value) % 5 === 0) {
-    alert("Смена подающего!");
+    (!fieldNameUser1.classList.contains('submits')) ? alert(`Подаёт ${user1}`) :
+                                                      alert(`Подаёт ${user2}`);
+
     fieldNameUser1.classList.toggle('submits');
     fieldNameUser2.classList.toggle('submits');
   }
