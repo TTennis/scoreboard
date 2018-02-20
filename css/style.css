@@ -162,3 +162,8 @@ body {
 ::-moz-placeholder          {font-family: 'Pribambas';}/* Firefox 19+ */
 :-moz-placeholder           {font-family: 'Pribambas';}/* Firefox 18- */
 :-ms-input-placeholder      {font-family: 'Pribambas';}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
