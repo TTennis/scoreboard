@@ -1,5 +1,5 @@
 body {
-  /*font-family: 'Pribambas';*/
+  font-family: 'Pribambas';
 }
 
 /*@font-face {*/
@@ -54,7 +54,6 @@ body {
   max-width: 225px;
   margin: auto;
   padding-top: 20px;
-  font-family: 'Pribambas';
   font-weight: 700;
   color: floralwhite;
   font-size: 34px;
@@ -101,7 +100,7 @@ body {
 .scoreboard-buttons__btn,
 .scoreboard-dialog__btn{
   width: 45%;
-  height: 45px;
+  min-height: 45px;
   padding-bottom: 11px;
   font-family: 'Pribambas';
   font-size: 28px;
@@ -109,6 +108,7 @@ body {
   color: white;
   border: none;
   cursor: pointer;
+  word-break: break-all;
 }
 
 .scoreboard-buttons__btn--1,
