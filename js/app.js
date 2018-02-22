@@ -1,5 +1,9 @@
 'use strict';
 
+class User() {
+
+}
+
 let user1 = {
   fieldName: document.querySelector('.scoreboard-names__name--1'),
   fieldScore: document.querySelector('.scoreboard-scores__score--1'),
@@ -38,6 +42,11 @@ user2.btn.addEventListener('click', function () {
   validBalance();
 });
 
+function addPoint(fieldScore) {
+  ++fieldScore.value;
+  fieldScore.toString();
+}
+
 function validBalance() {
   if (balance) {
     if (Math.abs(+user1.fieldScore.value - +user2.fieldScore.value) >= 2) {
@@ -69,10 +78,7 @@ function changeGuard() {
   }
 }
 
-function addPoint(fieldScore) {
-  ++fieldScore.value;
-  fieldScore.toString();
-}
+
 
 function changeName(fieldName, dialogName, btnUser, user) {
   fieldName.textContent = user;
