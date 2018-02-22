@@ -1,36 +1,38 @@
 'use strict';
 
-let user1 = prompt('Имя первого игрока', 'Игрок 1');
-let user2 = prompt('Имя второго игрока', 'Игрок 2');
+let user1 = {
+  fieldName: document.querySelector('.scoreboard-names__name--1'),
+  fieldScore: document.querySelector('.scoreboard-scores__score--1'),
+  btn: document.querySelector('.scoreboard-buttons__btn--1'),
+  dialogBtn: document.querySelector('.scoreboard-dialog__btn--1'),
+};
+
+let user2 = {
+  fieldName: document.querySelector('.scoreboard-names__name--2'),
+  fieldScore: document.querySelector('.scoreboard-scores__score--2'),
+  btn: document.querySelector('.scoreboard-buttons__btn--2'),
+  dialogBtn: document.querySelector('.scoreboard-dialog__btn--2'),
+};
+
+user1.name = prompt('Имя первого игрока', 'Игрок 1');
+user2.name = prompt('Имя второго игрока', 'Игрок 2');
 
 let balance = false;
 
-let fieldNameUser1 = document.querySelector('.scoreboard-names__name--1');
-let fieldNameUser2 = document.querySelector('.scoreboard-names__name--2');
-
-let fieldScoreUser1 = document.querySelector('.scoreboard-scores__score--1');
-let fieldScoreUser2 = document.querySelector('.scoreboard-scores__score--2');
-
-let btnUser1 = document.querySelector('.scoreboard-buttons__btn--1');
-let btnUser2 = document.querySelector('.scoreboard-buttons__btn--2');
-
-let dialogBtnUser1 = document.querySelector('.scoreboard-dialog__btn--1');
-let dialogBtnUser2 = document.querySelector('.scoreboard-dialog__btn--2');
-
-changeName(fieldNameUser1, dialogBtnUser1, btnUser1, user1);
-changeName(fieldNameUser2, dialogBtnUser2, btnUser2, user2);
+changeName(user1.fieldName, user1.dialogBtn, user1.btn, user1.name);
+changeName(user2.fieldName, user2.dialogBtn, user2.btn, user2.name);
 
 startGame();
 
-btnUser1.addEventListener('click', function () {
-  addPoint(fieldScoreUser1);
+user1.btn.addEventListener('click', function () {
+  addPoint(user1.fieldScore);
   changeGuard();
   validScore();
   validBalance();
 });
 
-btnUser2.addEventListener('click', function () {
-  addPoint(fieldScoreUser2);
+user2.btn.addEventListener('click', function () {
+  addPoint(user2.fieldScore);
   validScore();
   changeGuard();
   validBalance();
@@ -38,32 +40,32 @@ btnUser2.addEventListener('click', function () {
 
 function validBalance() {
   if (balance) {
-    if (Math.abs(+fieldScoreUser1.value - +fieldScoreUser2.value) >= 2) {
+    if (Math.abs(+user1.fieldScore.value - +user2.fieldScore.value) >= 2) {
       alert("Поздравляем, игра закончилась!");
     }
   }
 }
 
 function validScore() {
-  if (+fieldScoreUser1.value >= 11 ||
-      +fieldScoreUser2.value >= 11) {
+  if (+user1.fieldScore.value >= 11 ||
+      +user2.fieldScore.value >= 11) {
     alert("Поздравляем, игра закончилась!");
   }
-  if (+fieldScoreUser1.value >= 10 &&
-      +fieldScoreUser2.value >= 10) {
-    fieldScoreUser1.value = +fieldScoreUser1.value - 10;
-    fieldScoreUser2.value = +fieldScoreUser2.value - 10;
+  if (+user1.fieldScore.value >= 10 &&
+      +user2.fieldScore.value >= 10) {
+    user1.fieldScore.value = +user1.fieldScore.value - 10;
+    user2.fieldScore.value = +user2.fieldScore.value - 10;
     balance = true;
   }
 }
 
 function changeGuard() {
-  if ((+fieldScoreUser1.value + +fieldScoreUser2.value) % 5 === 0) {
-    (!fieldNameUser1.classList.contains('submits')) ? alert(`Подаёт ${user1}`) :
-                                                      alert(`Подаёт ${user2}`);
+  if ((+user1.fieldScore.value + +user2.fieldScore.value) % 5 === 0) {
+    (!user1.fieldName.classList.contains('submits')) ? alert(`Подаёт ${user1.name}`) :
+                                                        alert(`Подаёт ${user2.name}`);
 
-    fieldNameUser1.classList.toggle('submits');
-    fieldNameUser2.classList.toggle('submits');
+    user1.fieldName.classList.toggle('submits');
+    user2.fieldName.classList.toggle('submits');
   }
 }
 
@@ -84,9 +86,9 @@ function startGame() {
   dialogWindow.classList.add('scoreboard-dialog--show');
   dialogWindow.addEventListener('click', function (e) {
     if (e.target.classList.contains('scoreboard-dialog__btn--1')) {
-      fieldNameUser1.classList.add('submits');
+      user1.fieldName.classList.add('submits');
     } else if (e.target.classList.contains('scoreboard-dialog__btn--2')) {
-      fieldNameUser2.classList.add('submits');
+      user2.fieldName.classList.add('submits');
     }
     dialogWindow.classList.remove('scoreboard-dialog--show');
   });
